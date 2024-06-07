@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Switch
+  - Weapon
+  - Enemy
+  - Collidables
+  - Enemy_Bullet
+  - Checkpoint
+  - Sun
+  - Bullet_Laser
+  - Bullet_Fire
+  - Bullet_Gauss
+  - PlayerShield
+  - BlueEnemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Enemy
+  - EnemyCrosshair
+  - Obstaculo
+  - CheckPoint
+  - Planets
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2469781175
+    locked: 0
+  - name: Foreground
+    uniqueID: 1100878497
+    locked: 0
+  - name: Collidable
+    uniqueID: 1851680275
+    locked: 0
+  - name: Player
+    uniqueID: 3616102775
+    locked: 0
+  - name: UI
+    uniqueID: 2195444495
+    locked: 0

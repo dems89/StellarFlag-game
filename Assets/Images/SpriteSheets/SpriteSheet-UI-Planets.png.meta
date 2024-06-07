@@ -1,0 +1,1104 @@
+fileFormatVersion: 2
+guid: 3db7808c45dbaed43b1b1214455e580c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 774
+        width: 105
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 209ccde946cfb1e4f9e2dfdb9d23235e
+      internalID: 1864988156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 774
+        width: 105
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5226570c3475808429f27ffe0e24eb90
+      internalID: -53691416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_2
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 774
+        width: 105
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a84b3d67e8ead4e966c1f3eeef0c3e
+      internalID: 1596005896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_3
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 774
+        width: 105
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9466a4e895e514586028d623300c87
+      internalID: 617467649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_4
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 774
+        width: 105
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b291229d888a454aae4d7c609d3d0d4
+      internalID: -1459559426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_5
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 774
+        width: 105
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 899b49a4c76538940b92d3c09dd218bb
+      internalID: 1412628653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_6
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 556
+        width: 105
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f778c9d0665cb4bb27100700af0b26
+      internalID: 1525408258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_7
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 556
+        width: 105
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36032a1133dee8e4c91d04f4dc84035d
+      internalID: -359987307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_8
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 671
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280ab0aa021501342b00ceaec9e7b925
+      internalID: -377012388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_9
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 671
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6da0558183420bc49b9afdf72bd1de85
+      internalID: 419294745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_10
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 671
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9c67e20b81fb64fb58a5b5d948aa24
+      internalID: -2001779447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_11
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 671
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f430714c5b2d340a04afc92d2cb654
+      internalID: -354014227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_12
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 671
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9cde155f0d93844d9fe58c917ff5f49
+      internalID: -1818918580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_14
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 641
+        width: 90
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15635dc66032cba4287b75d22ddf413e
+      internalID: -1533602709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_15
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 631
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcfeb5f37a9389943a6f75d579fca6ce
+      internalID: -1683219208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_16
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 631
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2917b568eb3f14441972e8110376e147
+      internalID: 1146580449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_17
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 631
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a141d5ceff2ef48b352ccd5f809ec8
+      internalID: 1602820951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_18
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 631
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40dd9d871ba1a56479b575d87864b690
+      internalID: -1285101223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_19
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 631
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb7917de144b84b4ba2dd14e13ea38c8
+      internalID: -58699413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_21
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 627
+        width: 135
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30333ec44fd84a2499ecc89f092eff74
+      internalID: -477481530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_23
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 556
+        width: 115
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bbd62372dc5478458b0fd0c808e8a5a
+      internalID: -2011439544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_24
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 573
+        width: 130
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c432f1495ff1ee749b1973e93efd236c
+      internalID: 1944039647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_32
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 516
+        width: 90
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d7abc6111a59b42b95da1f66169921
+      internalID: 1047838486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_33
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 356
+        width: 140
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b24244bb2dc7ae4596ea7db2b775b44
+      internalID: -1769341206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_34
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 356
+        width: 140
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a91631f1553a84985ef9b52f0f4460
+      internalID: -650798276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_35
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 356
+        width: 140
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a587cb3906bc4ba41ab53445a185c410
+      internalID: 1368021109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_37
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 423
+        width: 140
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91af7aef892484a4db9733639ac9634e
+      internalID: -1425656035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_42
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 342
+        width: 153
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227886d1cb410654386d5edfb83c521a
+      internalID: -2131615646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_49
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 356
+        width: 20
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc6a876cb947d4b4386067599bed2557
+      internalID: 1214032326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_50
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 356
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 441f2bd304eb43f47ada250bab1eaa65
+      internalID: 1324549149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_51
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 356
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216dabae44eacde458fdfb5c66d5288c
+      internalID: -1375099183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_54
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 181
+        width: 130
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b68ea097a086a943bcd06e77b0c576e
+      internalID: -1724837175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_55
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 181
+        width: 130
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7174cb430a9670b448c07c5dcb8f1782
+      internalID: 1272774451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_56
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 176
+        width: 125
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19725c507e0ebd443b80504c4a339d66
+      internalID: 542328681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_57
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 178
+        width: 125
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb6555b3dd963f418bfd065c3e43b8b
+      internalID: 1460082709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_58
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 178
+        width: 130
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedae777ebbbf594eba529e44e4bac75
+      internalID: 1833425151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_59
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 178
+        width: 125
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0829fbf7cfaf4f941a8b5fa191192169
+      internalID: 301756560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_60
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 13
+        width: 130
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b0d95218570134d81e8d50cb5a957d
+      internalID: -1823687039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_61
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 13
+        width: 130
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0903b40366fab74d8b172946ea6f704
+      internalID: -1176628022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_62
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 8
+        width: 125
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb761cda668e5384b9bf8f8f56e246f1
+      internalID: -6497088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_63
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 8
+        width: 125
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31af8b205c973bf43a692b687bc3532f
+      internalID: -2038905182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_64
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 8
+        width: 125
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b8d355fc449da45b631da2db1f2336
+      internalID: -1118781645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_65
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 8
+        width: 125
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c19e3be4872a446b165c5db00c72b1
+      internalID: -690712274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TilePaletteUI-Planets_13
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 562
+        width: 135
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15e4529ecdb4c6458188e0ab530b67b
+      internalID: 1115786856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      TilePaletteUI-Planets_0: 1864988156
+      TilePaletteUI-Planets_1: -53691416
+      TilePaletteUI-Planets_10: -2001779447
+      TilePaletteUI-Planets_11: -354014227
+      TilePaletteUI-Planets_12: -1818918580
+      TilePaletteUI-Planets_13: 1115786856
+      TilePaletteUI-Planets_14: -1533602709
+      TilePaletteUI-Planets_15: -1683219208
+      TilePaletteUI-Planets_16: 1146580449
+      TilePaletteUI-Planets_17: 1602820951
+      TilePaletteUI-Planets_18: -1285101223
+      TilePaletteUI-Planets_19: -58699413
+      TilePaletteUI-Planets_2: 1596005896
+      TilePaletteUI-Planets_20: -548325430
+      TilePaletteUI-Planets_21: -477481530
+      TilePaletteUI-Planets_22: 1121179994
+      TilePaletteUI-Planets_23: -2011439544
+      TilePaletteUI-Planets_24: 1944039647
+      TilePaletteUI-Planets_25: 1718796846
+      TilePaletteUI-Planets_26: -963744238
+      TilePaletteUI-Planets_27: -1823011905
+      TilePaletteUI-Planets_28: -503287607
+      TilePaletteUI-Planets_29: -944125762
+      TilePaletteUI-Planets_3: 617467649
+      TilePaletteUI-Planets_30: 2129157353
+      TilePaletteUI-Planets_31: 24587470
+      TilePaletteUI-Planets_32: 1047838486
+      TilePaletteUI-Planets_33: -1769341206
+      TilePaletteUI-Planets_34: -650798276
+      TilePaletteUI-Planets_35: 1368021109
+      TilePaletteUI-Planets_36: -172058783
+      TilePaletteUI-Planets_37: -1425656035
+      TilePaletteUI-Planets_38: 776522263
+      TilePaletteUI-Planets_39: -564961496
+      TilePaletteUI-Planets_4: -1459559426
+      TilePaletteUI-Planets_40: -1326301440
+      TilePaletteUI-Planets_41: -1260522723
+      TilePaletteUI-Planets_42: -2131615646
+      TilePaletteUI-Planets_43: 1218405073
+      TilePaletteUI-Planets_44: -721741033
+      TilePaletteUI-Planets_45: 1006819982
+      TilePaletteUI-Planets_46: -1611726614
+      TilePaletteUI-Planets_47: 203317226
+      TilePaletteUI-Planets_48: 507246765
+      TilePaletteUI-Planets_49: 1214032326
+      TilePaletteUI-Planets_5: 1412628653
+      TilePaletteUI-Planets_50: 1324549149
+      TilePaletteUI-Planets_51: -1375099183
+      TilePaletteUI-Planets_52: 80549139
+      TilePaletteUI-Planets_53: -667448168
+      TilePaletteUI-Planets_54: -1724837175
+      TilePaletteUI-Planets_55: 1272774451
+      TilePaletteUI-Planets_56: 542328681
+      TilePaletteUI-Planets_57: 1460082709
+      TilePaletteUI-Planets_58: 1833425151
+      TilePaletteUI-Planets_59: 301756560
+      TilePaletteUI-Planets_6: 1525408258
+      TilePaletteUI-Planets_60: -1823687039
+      TilePaletteUI-Planets_61: -1176628022
+      TilePaletteUI-Planets_62: -6497088
+      TilePaletteUI-Planets_63: -2038905182
+      TilePaletteUI-Planets_64: -1118781645
+      TilePaletteUI-Planets_65: -690712274
+      TilePaletteUI-Planets_7: -359987307
+      TilePaletteUI-Planets_8: -377012388
+      TilePaletteUI-Planets_9: 419294745
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
