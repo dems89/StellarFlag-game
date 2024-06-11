@@ -1,15 +1,18 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy_Spawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] enemyPrefabs;
+    //private GameObject[] enemyPrefabs;
+    private string[] enemies = {"RedEnemy", "GreenEnemy", "BlueEnemy"};
     private Transform player;
 
     //Estados del Spawn
     [SerializeField]
-    private float totalTimeToCapture = 4f;
+    private float totalTimeToCapture = 3f;
     [SerializeField]
     private Slider captureProgress;
     private bool isCaptured = false, isCapturing = false, spawning = true;
@@ -17,14 +20,17 @@ public class Enemy_Spawner : MonoBehaviour
 
     //Propiedades del Spawn  
     [SerializeField]
-    private float _enemySpawnInterval = 4f;    
+    private float _enemySpawnInterval = 2.5f;    
     private float timeLastSpawn, _detectionDistance = 25f;   
 
     //Orbita
-    private GameObject sol; // Referencia al Sol
-    private float _distanciaOrbita; // Distancia del planeta al Sol
-    private float _velocidadOrbita = 0.1f; // Velocidad de la órbita
-    private float _angulo; // Angulo de la órbita
+    private GameObject sol;
+    private float _distanciaOrbita;
+    private float _velocidadOrbita = 0.1f;
+    private float _angulo;
+
+    public byte segments = 100;
+    private LineRenderer lineRenderer;
 
 
     private void Awake()
@@ -40,6 +46,9 @@ public class Enemy_Spawner : MonoBehaviour
         Vector3 direccionInicial = transform.position - sol.transform.position;
         _angulo = Mathf.Atan2(direccionInicial.y, direccionInicial.x);
         _distanciaOrbita = (transform.position - sol.transform.position).magnitude;
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.positionCount = segments + 1;
+        CalculateOrbit();
     }
     void Update()
     {
@@ -47,19 +56,37 @@ public class Enemy_Spawner : MonoBehaviour
         IsPlayerNear(ref player);
         Capturing();
         Orbitar();
+        CalculateOrbit();
+    }
+    void CalculateOrbit()
+    {
+        Vector3[] positions = new Vector3[segments + 1];
+
+        // Calcula los puntos de la órbita
+        for (byte i = 0; i < segments; i++)
+        {
+            float angle = i * 2 * Mathf.PI / segments;
+            float x = sol.transform.position.x + Mathf.Cos(angle) * _distanciaOrbita;
+            float y = sol.transform.position.y + Mathf.Sin(angle) * _distanciaOrbita;
+            positions[i] = new Vector3(x, y, 0f);
+        }
+
+        positions[segments] = positions[0];
+
+        // Asigna los puntos al LineRenderer
+        lineRenderer.SetPositions(positions);
     }
 
     void Orbitar()
     {
         _angulo += _velocidadOrbita * Time.deltaTime;
 
-        // Calculamos la nueva posición del planeta en la órbita
+        // Calcula la nueva posición del planeta
         Vector3 nuevaPosicion = new Vector3(
             Mathf.Cos(_angulo) * _distanciaOrbita,
             Mathf.Sin(_angulo) * _distanciaOrbita, 0f
         );
 
-        // Ajustamos la posición del planeta
         transform.position = sol.transform.position + nuevaPosicion;
     }
     void SpawnEnemy()
@@ -69,20 +96,29 @@ public class Enemy_Spawner : MonoBehaviour
         Vector3 offset = new(randomOffsetX, randomOffsetY, 0f);
 
         float randomValue = Random.value;
-        byte enemyIndex;
+        sbyte enemyIndex;
+        string enemyType;
         if (randomValue <= 0.40f)
         {
             enemyIndex = 0;
+            enemyType = enemies[enemyIndex];
         }
         else if (randomValue <= 0.80f)
         {
             enemyIndex = 1;
+            enemyType = enemies[enemyIndex];
         }
         else
         {
             enemyIndex = 2;
+            enemyType = enemies[enemyIndex];
         }
-        Instantiate(enemyPrefabs[enemyIndex], transform.position + offset, Quaternion.identity);
+        GameObject enemy = ObjectPooler.SharedInstance.GetPooledObjects(enemyType);
+        if (enemy != null)
+        {
+            enemy.transform.SetPositionAndRotation(this.transform.position + offset, this.transform.rotation);
+            enemy.SetActive(true);
+        }
     }
 
     private void IsPlayerNear(ref Transform player)
@@ -97,7 +133,7 @@ public class Enemy_Spawner : MonoBehaviour
 
     void Capturing()
     {
-        if (isCaptured) return;
+        if (isCaptured) { captureProgress.gameObject.SetActive(false); return; }
         if (isCapturing)
         {
             currentCaptureTime += Time.deltaTime / totalTimeToCapture;

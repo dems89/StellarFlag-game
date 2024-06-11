@@ -8,7 +8,6 @@ TagManager:
   - Weapon
   - Enemy
   - Collidables
-  - Enemy_Bullet
   - Checkpoint
   - Sun
   - Bullet_Laser
@@ -16,6 +15,9 @@ TagManager:
   - Bullet_Gauss
   - PlayerShield
   - BlueEnemy
+  - RedEnemy
+  - GreenEnemy
+  - E_RedBullet
   layers:
   - Default
   - TransparentFX

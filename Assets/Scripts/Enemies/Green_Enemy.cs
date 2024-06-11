@@ -4,22 +4,20 @@ using UnityEngine;
 public class Green_Enemy : Enemy
 {
     [SerializeField]
-    private GameObject _greenBullet;
-    public Transform crosshair;
-    public float rayMaxLength = 10f, attackCooldown = 2f;
+    private Transform crosshair;
+    private float rayMaxLength = 10f, attackCooldown = 3f;
     public LayerMask capaObstaculo;
     private Vector2 _lastPlayerPosition;
     public LineRenderer lineRenderer;
 
     void Start()
     {
-        distanciaMinima -= 3f;
+        distanciaMinima -= 6f;
         cadenciaDeFuego += 0.5f;
-        _speed -= 2f;
+        _speed -= 1f;
         lineRenderer.enabled = false;
         _damage = 20;
     }
-
 
     protected override void Update()
     {
@@ -70,6 +68,7 @@ public class Green_Enemy : Enemy
         //Debug.Log("Colision detectada" + collision.collider.name);
         if (collision.gameObject.CompareTag("Bullet_Fire"))
         {
+            lineRenderer.enabled = false;
             Die();
         }
     }

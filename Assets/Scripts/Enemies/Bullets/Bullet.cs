@@ -1,38 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private GameObject player;
     [SerializeField]
     private float _speed = 50f;
-    private Vector3 _direccionDisparo;
+    private Vector3 _direction;
     private Rigidbody2D _rb;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 3f);
+        _rb = GetComponent<Rigidbody2D>();        
+        player = GameObject.FindWithTag("Player");       
     }
-    public void Configurar(Vector3 direccion)
+    private void OnEnable()
     {
-        _direccionDisparo = direccion;
+        ShootDirection();
+        StartCoroutine(DisableAfterTime());
     }
     void FixedUpdate()
     {
-        Movement();
+        Movement();        
     }
 
     private void Movement()
     {
-        _rb.MovePosition(transform.position + _direccionDisparo *  _speed * Time.fixedDeltaTime);     
+        _rb.MovePosition(transform.position + _direction *  _speed * Time.fixedDeltaTime);     
     }
-
+    public void ShootDirection()
+    {
+        Vector3 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        targetPosition.z = 0;
+        _direction = (targetPosition - player.transform.position).normalized;
+    }
+    private IEnumerator DisableAfterTime()
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
       if (!collision.collider.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
             
         

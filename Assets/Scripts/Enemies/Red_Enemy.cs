@@ -5,26 +5,31 @@ public class Red_Enemy : Enemy
 {
     [SerializeField]
     private GameObject weapon;
+    private string bullet = "E_RedBullet";
     private float _fireDelay = 1f;
     private bool canFire = false;
 
-    private void Start()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+        canFire = false;
         StartCoroutine(FireDelay());
     }
     protected override void Attack(float distancia)
     {
         if (Time.time - tiempoUltimoDisparo >= cadenciaDeFuego && distanciaMaxima >= distancia && canFire)
-        {                       
-            if (weapon != null)
-            {
-                Vector2 direction = (player.transform.position - transform.position).normalized; //Esta linea devuelve la dirección del vector. Osea la recta hacia objetivo.
-                GameObject newProjectil = Instantiate(weapon, transform.position, transform.rotation);
-                if (newProjectil != null)
+        {
+            GameObject newProjectile = ObjectPooler.SharedInstance.GetPooledObjects(bullet);
+            if (newProjectile != null)
+            {                
+                newProjectile.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
+                Enemy_Bullet bulletScript = newProjectile.GetComponent<Enemy_Bullet>();
+                if (bulletScript != null)
                 {
-                    Enemy_Bullet bulletComponent = newProjectil.GetComponent<Enemy_Bullet>();
-                    bulletComponent.Configurar(direction);
+                    bulletScript.Initialize(transform.right);
                 }
+                newProjectile.SetActive(true);
             }
             tiempoUltimoDisparo = Time.time;
         }       

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1537471415318103971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.065, y: 0.039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,11 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d79f52da72aef40a6da0bc79afbaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mira: {fileID: 0}
-  projectiles:
-  - {fileID: 5672275305931183254, guid: 70743ba14f53a254fb3f2dd62434fc13, type: 3}
-  - {fileID: 7254336435794916478, guid: 6948956b11411af428c8971f0f93696e, type: 3}
-  - {fileID: 4950648909272446578, guid: b42ec9c56bbcb4b4c9307000594f94b7, type: 3}
 --- !u!1 &2200938595131876981
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,8 +225,6 @@ MonoBehaviour:
   _healthBar: {fileID: 0}
   _healthText: {fileID: 0}
   _shieldreflect: {fileID: 8720016143860526215}
-  laserWeapon: {fileID: 1737835795619549356}
-  weaponSound1: {fileID: 8300000, guid: 1e8905c4802b8194eb014314e7b20020, type: 3}
 --- !u!82 &1737835795619549356
 AudioSource:
   m_ObjectHideFlags: 0
@@ -239,7 +232,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2200938595131876981}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}

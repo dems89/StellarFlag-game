@@ -1,31 +1,34 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Enemy_Bullet : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 30f;
-    private Vector3 _direccionDisparo;
     private Rigidbody2D _rb;
+    private Vector3 _direction;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+    }
+    private void OnEnable()
+    {
+        _rb.velocity = _direction * _speed;
+        StartCoroutine(DisableAfterTime());
+    }
+    public void Initialize(Vector3 direction)
+    {
+        _direction = direction.normalized;
+        _rb.velocity = _direction * _speed;
+    }
 
-    }
-    public void Configurar(Vector3 direccion)
+    private IEnumerator DisableAfterTime()
     {
-        _direccionDisparo = direccion;
-        Destroy(gameObject, 3f);
-    }
-    private void FixedUpdate()
-    {
-        Movement();
-    }
-
-    private void Movement()
-    {
-        _rb.MovePosition(transform.position + _direccionDisparo * _speed * Time.fixedDeltaTime);
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,8 +40,8 @@ public class Enemy_Bullet : MonoBehaviour
             {
                 damageable.TakeDamage(8);
             }
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

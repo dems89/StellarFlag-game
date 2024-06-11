@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
     private WeaponController weaponController;
     [SerializeField]
-    private short _maxHealth = 300;
+    private short _maxHealth = 250;
     private short _currentHealth;
     [SerializeField]
     private Slider _healthBar;
@@ -21,9 +21,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Collider2D _playerCollider;
     [SerializeField]
     private GameObject _shieldreflect;    
-    /*--------------WEAPON-SOUNDS---------------*/
-    public AudioSource laserWeapon;
-    public AudioClip weaponSound1;
     /*--------------ANIMATIONS---------------*/
     private Animator _animControl;
     private Animator _shieldAnimator;
@@ -45,7 +42,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         _healthBar.maxValue = _maxHealth;
         _healthBar.value = _currentHealth;
         _healthText.text += _currentHealth.ToString();
-        laserWeapon.clip = weaponSound1;
 
     }
     void Update()
@@ -94,8 +90,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
         if (Input.GetButtonDown("Fire1") && weaponController != null)
         {           
-                weaponController.FireProjectile(transform.rotation);
-                laserWeapon.Play();
+                weaponController.FireProjectile();
         }
         
     }

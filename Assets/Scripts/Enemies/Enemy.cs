@@ -1,19 +1,20 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     /*--------------Referencias---------------*/
     protected GameObject player;
     protected Rigidbody2D _enemyRb, _playerRb;
     protected Collider2D _enemyCollider;
-    [SerializeField]
     /*--------------Propiedades del Enemy---------------*/
-    protected float _speed = 10f;
-    protected float distanciaMaxima = 30f, distanciaMinima = 10f, cadenciaDeFuego = 2f, tiempoUltimoDisparo;
+    [SerializeField]
+    protected float _speed = 9f;
+    protected float distanciaMaxima = 30f, distanciaMinima = 15f, cadenciaDeFuego = 2f, tiempoUltimoDisparo;
     protected sbyte _damage;
     protected Animator _anim;
-    protected bool isAlive = true;
+    protected bool isAlive;
 
     protected virtual void Awake()
     {
@@ -21,10 +22,13 @@ public class Enemy : MonoBehaviour
         _enemyRb = gameObject.GetComponent<Rigidbody2D>();
         _playerRb = player.GetComponent<Rigidbody2D>();
         _enemyCollider = GetComponent<Collider2D>();
-        _anim = GetComponent<Animator>();
-        
+        _anim = GetComponent<Animator>();        
     }
-
+    protected virtual void OnEnable()
+    {
+        isAlive = true;
+        _enemyCollider.enabled = true;
+    }
     protected virtual void Update()
     {
         if (player != null && isAlive)
@@ -36,11 +40,11 @@ public class Enemy : MonoBehaviour
     {
         if (player != null && isAlive)
         {
-            LookAtPlayer(player.transform);
+            LookAtPlayer();
             if (ObjetiveDistance() <= distanciaMaxima && ObjetiveDistance() >= distanciaMinima)
             {
 
-                Movement(player.transform.position);
+                Movement();
             }            
         }        
     }
@@ -54,15 +58,15 @@ public class Enemy : MonoBehaviour
     protected virtual void Attack(float distancia)
     {
     }
-    private void Movement(Vector2 playerPosition)
+    private void Movement()
     {
-        Vector2 direction = (playerPosition - _enemyRb.position).normalized;
-        Vector2 targetPosition = _enemyRb.position + direction * _speed * Time.fixedDeltaTime;
+        Vector3 direction = ( player.transform.position - transform.position).normalized;
+        Vector3 targetPosition = transform.position + direction * _speed * Time.fixedDeltaTime;
         _enemyRb.MovePosition(targetPosition);
     }
-    private void LookAtPlayer(Transform player)
+    private void LookAtPlayer()
     {
-        Vector2 directionToPlayer = player.transform.position - transform.position;
+        Vector3 directionToPlayer = player.transform.position - transform.position;
         float targetAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
         _enemyRb.MoveRotation(targetAngle);
     }
@@ -85,14 +89,14 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
     private IEnumerator DestroyAfterAnimation()
     {
         yield return new WaitForSeconds(_anim.GetCurrentAnimatorStateInfo(0).length); // Esperar hasta que termine la animación de muerte
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
         

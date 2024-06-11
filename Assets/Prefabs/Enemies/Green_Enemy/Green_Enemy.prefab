@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1587949735013097202}
   m_Layer: 6
   m_Name: Green_Enemy
-  m_TagString: Enemy
+  m_TagString: GreenEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,11 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a285d3423ebc497489093deaa457552c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 7
-  _greenBullet: {fileID: 7985788306292795645, guid: 501a2eaec05e99c4a95d191d76484edf, type: 3}
+  _speed: 8
   crosshair: {fileID: 5781470206244047134}
   rayMaxLength: 10
-  attackCooldown: 2
+  attackCooldown: 3
   capaObstaculo:
     serializedVersion: 2
     m_Bits: 264
