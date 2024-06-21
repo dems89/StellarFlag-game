@@ -10,12 +10,12 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
     private WeaponController weaponController;
     [SerializeField]
-    private short _maxHealth = 250;
-    private short _currentHealth;
-    [SerializeField]
-    private Slider _healthBar;
-    [SerializeField]
-    private TMPro.TextMeshProUGUI _healthText;
+    private int _maxHealth = 250;
+    private int _currentHealth;
+    //[SerializeField]
+    //private Slider _healthBar;
+    //[SerializeField]
+    //private TMPro.TextMeshProUGUI _healthText;
     private Vector2 _lastCeckPoint;
     private bool _canShoot = true, _isShieldActive = false;
     private Collider2D _playerCollider;
@@ -39,9 +39,11 @@ public class PlayerController : MonoBehaviour, IDamageable
     void Start()
     {        
         _currentHealth = _maxHealth;
-        _healthBar.maxValue = _maxHealth;
-        _healthBar.value = _currentHealth;
-        _healthText.text += _currentHealth.ToString();
+        SetHUDMaxHealth();
+        UpdateHUDHealth();
+        //_healthBar.maxValue = _maxHealth;
+        //_healthBar.value = _currentHealth;
+        //_healthText.text += _currentHealth.ToString();
 
     }
     void Update()
@@ -141,8 +143,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         else
         {
             _currentHealth -= damage;
-            _healthBar.value = _currentHealth;
-            _healthText.text = _currentHealth.ToString();
+            UpdateHUDHealth();
+            //_healthBar.value = _currentHealth;
+            //_healthText.text = _currentHealth.ToString();
             //Debug.Log(_currentHealth);
         }
     }
@@ -155,8 +158,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     {        
         transform.position = _lastCeckPoint;
         _currentHealth = _maxHealth;
-        _healthBar.value = _currentHealth;
-        _healthText.text = _currentHealth.ToString();
+        UpdateHUDHealth();
+        //_healthBar.value = _currentHealth;
+        //_healthText.text = _currentHealth.ToString();
         _playerCollider.enabled = true;
         _animControl.SetBool("IsDestroyed", false);
     }
@@ -165,7 +169,22 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(_animControl.GetCurrentAnimatorStateInfo(0).length);
         Respawn();
-    } 
+    }
+
+    private void UpdateHUDHealth()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.UpdatePlayerHealth(_currentHealth);
+        }
+    }
+    private void SetHUDMaxHealth()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.SetMaxPlayerHealth(_maxHealth);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -8,6 +8,7 @@ public class Blue_Enemy : Enemy
     private float _minSpeed = 2f;
     private float _maxSpeed = 18f;
     private float _SpeedReduction = 12f;
+    readonly WaitForSeconds delayDmg = new WaitForSeconds(1);
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class Blue_Enemy : Enemy
         while (isPlayerDetected)
         {
             ApplyDamageToPlayer(player);
-            yield return new WaitForSeconds(1f); // Aplica el daño cada segundo
+            yield return delayDmg; // Aplica el daño cada segundo
         }
     }
 

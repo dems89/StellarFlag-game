@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class CameraTracking : MonoBehaviour
 {
-    [SerializeField]
-    private Transform player; 
+    private GameObject player;
+    private Camera m_camera;
+
+    private void Awake()
+    {
+        m_camera = Camera.main;
+        m_camera.orthographicSize = 13f;
+        player = GameObject.FindWithTag("Player");
+    }
 
     void LateUpdate()
     {
         if (player != null)
         {
-            Vector3 playerPosition = player.position;
+            Vector3 playerPosition = player.transform.position;
             playerPosition.z = transform.position.z;
             transform.position = playerPosition;
         }

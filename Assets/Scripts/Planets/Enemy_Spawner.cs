@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Enemy_Spawner : MonoBehaviour
 {
     [SerializeField]
-    //private GameObject[] enemyPrefabs;
     private string[] enemies = {"RedEnemy", "GreenEnemy", "BlueEnemy"};
     private Transform player;
 

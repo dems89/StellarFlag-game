@@ -9,6 +9,8 @@ public class Green_Enemy : Enemy
     public LayerMask capaObstaculo;
     private Vector2 _lastPlayerPosition;
     public LineRenderer lineRenderer;
+    readonly WaitForSeconds delayAiming = new WaitForSeconds(.3f);
+    readonly WaitForSeconds delayPostShoot = new WaitForSeconds(.4f);
 
     void Start()
     {
@@ -35,7 +37,7 @@ public class Green_Enemy : Enemy
     {
         _enemyRb.constraints = RigidbodyConstraints2D.FreezeAll;
         Vector3 direction = (_lastPlayerPosition - (Vector2)crosshair.position).normalized;
-        yield return new WaitForSeconds(.3f);
+        yield return delayAiming;
         RaycastHit2D hit = Physics2D.Raycast(crosshair.position, direction, rayMaxLength, capaObstaculo);     
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, crosshair.position);
@@ -57,7 +59,7 @@ public class Green_Enemy : Enemy
                 //Debug.Log("Rayo no golpea con nada");            
 
         }
-        yield return new WaitForSeconds(0.4f); //Espera para desaparecer el LineRenderer
+        yield return delayPostShoot; //Espera para desaparecer el LineRenderer
         _enemyRb.constraints = RigidbodyConstraints2D.None;
         lineRenderer.enabled = false;
     }

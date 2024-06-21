@@ -11,7 +11,6 @@ public class ObjectPoolItem
     public bool shouldExpand;
 
 }
-
 public class ObjectPooler : MonoBehaviour
 {
    public static ObjectPooler SharedInstance;
@@ -20,10 +19,20 @@ public class ObjectPooler : MonoBehaviour
 
     private void Awake()
     {
+        // Configurar el Singleton
+        if (SharedInstance != null && SharedInstance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         SharedInstance = this;
+        //DontDestroyOnLoad(gameObject);  // No destruir al cambiar de escena
+
+        // Inicializar el pool
+        InitializePool();
     }
 
-    private void Start()
+    private void InitializePool()
     {
         pooledObjects = new List<GameObject>();
         foreach (ObjectPoolItem item in itemsToPool) 

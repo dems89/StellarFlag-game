@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    //[SerializeField] private List<GameObject> projectiles;
     private readonly string[] projectils = { "Bullet_Laser", "Bullet_Gauss", "Bullet_Fire" };
     private byte _currentProjectileIndex;
     private readonly float[] _fireDelays = { 0.1f, 0.4f, 0.3f };

@@ -23,12 +23,7 @@ public abstract class Enemy : MonoBehaviour
         _playerRb = player.GetComponent<Rigidbody2D>();
         _enemyCollider = GetComponent<Collider2D>();
         _anim = GetComponent<Animator>();        
-    }
-    protected virtual void OnEnable()
-    {
-        isAlive = true;
-        _enemyCollider.enabled = true;
-    }
+    }  
     protected virtual void Update()
     {
         if (player != null && isAlive)
@@ -47,6 +42,11 @@ public abstract class Enemy : MonoBehaviour
                 Movement();
             }            
         }        
+    }
+    protected virtual void OnEnable()
+    {
+        isAlive = true;
+        _enemyCollider.enabled = true;
     }
     public float ObjetiveDistance()
     {

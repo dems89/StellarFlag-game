@@ -8,7 +8,12 @@ public class Red_Enemy : Enemy
     private string bullet = "E_RedBullet";
     private float _fireDelay = 1f;
     private bool canFire = false;
+    WaitForSeconds delay;
 
+    private void Start()
+    {
+        delay = new WaitForSeconds(_fireDelay);
+    }
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -38,7 +43,7 @@ public class Red_Enemy : Enemy
     // Delay entre el spawn y el primer disparo
     private IEnumerator FireDelay()
     {        
-        yield return new WaitForSeconds(_fireDelay);
+        yield return delay;
         canFire = true;
     }
 

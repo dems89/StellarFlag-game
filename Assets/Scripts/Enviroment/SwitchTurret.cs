@@ -3,7 +3,7 @@ using UnityEngine;
 public class SwitchTurret : MonoBehaviour
 {
     [SerializeField]
-    private GameObject Laser;
+    public Canvas missionComplete;
     private bool _status = false;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,10 +23,9 @@ public class SwitchTurret : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && _status == true)
+        if (Input.GetKeyUp(KeyCode.E) && _status == true)
         {
-            Debug.Log("Espacio apretado");
-            Laser.SetActive(!Laser.activeSelf);
+            missionComplete.GetComponent<Canvas>().enabled = true;
         }
     }
 }
