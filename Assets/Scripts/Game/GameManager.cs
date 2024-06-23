@@ -1,130 +1,76 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
-    public GameObject inGameHUD;
-    public GameObject pauseMenu;
-    public GameObject mainMenu;
-    private GameObject player;
-    public GameObject victoryHUD;
-    public static GameManager instance;
-    private bool isPaused = false, isGameMenu = true;
-    private int currentLevel = 0;
-    private int totalLevels = 3;
-
+    [SerializeField]
+    private HUDManager hudController;
+    public static GameManager Instance;
+    private bool _isPaused = false;
+    private PlayerController _pController;
     private void Awake()
     {        
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
             return;
-        }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        }     
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {           
-            if (isPaused)
-            {               
-                ResumeGame();
-            }
-            else
-            {               
-                PauseGame();
-            }
-        }
-        if (isGameMenu)
-        {
-            isPaused = false;
-            inGameHUD.SetActive(false);
-            pauseMenu.SetActive(false);
-            victoryHUD.SetActive(false);
-            mainMenu.SetActive(true);
-        }
-        else { inGameHUD.SetActive(true); mainMenu.SetActive(false);  }
+        hudController = FindObjectOfType<HUDManager>();        
     }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void Update()
     {
-        if (scene.name != "MainMenu")
+        if (Input.GetKeyDown(KeyCode.Escape) && GetSceneName() != "MainMenu")
         {
-            FindPlayer();
+            TogglePause();
+        }
+        if (GetSceneName() != "MainMenu" && _pController == null)
+        {
+            _pController = FindObjectOfType<PlayerController>();
         }
     }
-    private void FindPlayer()
+    void TogglePause()
     {
-        player = GameObject.FindWithTag("Player");
-        if (player == null)
+        _isPaused = !_isPaused;
+        if (_isPaused)
         {
-            Debug.LogError("Player no encontrado. Asegúrate de que hay un objeto con la etiqueta 'Player' en la escena.");
+            PauseGame();            
+        }
+        else
+        {
+            ResumeGame();
+        }
+    }
+    public void PauseGame()
+    {
+        hudController.SetHUD(HUDType.PauseMenu);
+        Time.timeScale = 0f;
+        if (_pController != null)
+        {
+            _pController.ChangeShootCap(false);
         }
     }
     public void ResumeGame()
     {
-        if (currentLevel != 0)
-        {
-            player.GetComponent<PlayerController>().ChangeShootCap(true);
-            pauseMenu.SetActive(false);
-            inGameHUD.SetActive(true);
-            Time.timeScale = 1f;
-            isPaused = false;
-        }
-       
-    }
-
-    public void PauseGame()
-    {
-        if (currentLevel != 0)
-        {
-            player.GetComponent<PlayerController>().ChangeShootCap(false);
-            pauseMenu.SetActive(true);
-            inGameHUD.SetActive(false);
-            Time.timeScale = 0f;
-            isPaused = true;
-        }
-          
-    }
-    public void GoToMainMenu()
-    {
+        hudController.SetHUD(HUDType.InGame);
         Time.timeScale = 1f;
-        currentLevel = 0;
-        SceneManager.LoadScene("MainMenu");
-        isGameMenu = true;
-    }
-
-    public void QuitGame()
-    {
-            Application.Quit(); 
-    }
-
-    public void NextLevel()
-    {
-        if (currentLevel <= totalLevels)
+        if (_pController != null)
         {
-            currentLevel++;
-            SceneManager.LoadScene("Level" + currentLevel);
-            isGameMenu = false;
+            _pController.ChangeShootCap(true);
         }
-
     }
-    public void SelectLevel(int level)
+    private string GetSceneName()
     {
-        isGameMenu = false;
-        SceneManager.LoadScene("level"+ level);
-        currentLevel = level;
+        string sceneName = SceneManager.GetActiveScene().name;
+        return sceneName;
     }
-    public void UpdatePlayerHealth(int health)
-    {    
-        inGameHUD.GetComponent<UIController>().SetHealth(health);
-    }
-    public void SetMaxPlayerHealth(int maxHealth)
+    public void SetPaused (bool isPaused)
     {
-        inGameHUD.GetComponent<UIController>().SetMaxHealth(maxHealth);
+        _isPaused = isPaused;
     }
-
 }

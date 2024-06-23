@@ -222,8 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 900
   _maxHealth: 500
-  _healthBar: {fileID: 0}
-  _healthText: {fileID: 0}
   _shieldreflect: {fileID: 8720016143860526215}
 --- !u!82 &1737835795619549356
 AudioSource:

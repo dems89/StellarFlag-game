@@ -1,7 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
@@ -12,10 +11,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField]
     private int _maxHealth = 250;
     private int _currentHealth;
-    //[SerializeField]
-    //private Slider _healthBar;
-    //[SerializeField]
-    //private TMPro.TextMeshProUGUI _healthText;
     private Vector2 _lastCeckPoint;
     private bool _canShoot = true, _isShieldActive = false;
     private Collider2D _playerCollider;
@@ -41,9 +36,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         _currentHealth = _maxHealth;
         SetHUDMaxHealth();
         UpdateHUDHealth();
-        //_healthBar.maxValue = _maxHealth;
-        //_healthBar.value = _currentHealth;
-        //_healthText.text += _currentHealth.ToString();
 
     }
     void Update()
@@ -67,6 +59,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
         
     }
+
+    /*--------------MECHANICS---------------*/
     void Movement()
     {
         float verticalInput = Input.GetAxis("Vertical");
@@ -90,7 +84,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             return;
         }
-        if (Input.GetButtonDown("Fire1") && weaponController != null)
+        else if(Input.GetButtonDown("Fire1") && weaponController != null)
         {           
                 weaponController.FireProjectile();
         }
@@ -123,12 +117,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         StartCoroutine(WaitAnimationEnd());
     }
 
-    private IEnumerator WaitAnimationEnd()
-    {
-        yield return new WaitForSeconds(_shieldAnimator.GetCurrentAnimatorStateInfo(0).length);
-        _shieldreflect.gameObject.SetActive(false);
-        _isShieldActive = false;
-    }
+
     public void TakeDamage(short damage)
     {
         if (_currentHealth <= damage)
@@ -144,8 +133,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             _currentHealth -= damage;
             UpdateHUDHealth();
-            //_healthBar.value = _currentHealth;
-            //_healthText.text = _currentHealth.ToString();
             //Debug.Log(_currentHealth);
         }
     }
@@ -154,37 +141,53 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         _canShoot = state;
     }
-    private void Respawn()
-    {        
-        transform.position = _lastCeckPoint;
-        _currentHealth = _maxHealth;
-        UpdateHUDHealth();
-        //_healthBar.value = _currentHealth;
-        //_healthText.text = _currentHealth.ToString();
-        _playerCollider.enabled = true;
-        _animControl.SetBool("IsDestroyed", false);
-    }
+  
+    /*--------------INTERFACES---------------*/
 
     private IEnumerator RespawnAfterAnimation()
     {
         yield return new WaitForSeconds(_animControl.GetCurrentAnimatorStateInfo(0).length);
         Respawn();
     }
+    private IEnumerator WaitAnimationEnd()
+    {
+        yield return new WaitForSeconds(_shieldAnimator.GetCurrentAnimatorStateInfo(0).length);
+        _shieldreflect.gameObject.SetActive(false);
+        _isShieldActive = false;
+    }
+
+    /*--------------UPDATE-HUD-HEALTH--------------*/
 
     private void UpdateHUDHealth()
     {
-        if (GameManager.instance != null)
+        if (HUDManager.Instance != null)
         {
-            GameManager.instance.UpdatePlayerHealth(_currentHealth);
+            HUDManager.Instance.UpdateUIplayerHealth(_currentHealth);
         }
     }
     private void SetHUDMaxHealth()
     {
-        if (GameManager.instance != null)
+        if (HUDManager.Instance != null)
         {
-            GameManager.instance.SetMaxPlayerHealth(_maxHealth);
+            HUDManager.Instance.SetUImaxPlayerHealth(_maxHealth);
         }
     }
+    private void Respawn()
+    {
+        if (LifeManager.Instance != null && LifeManager.Instance.IsAlive())
+        {
+            LifeManager.Instance.DecreaseLife();
+            transform.position = _lastCeckPoint;
+            _currentHealth = _maxHealth;
+             UpdateHUDHealth();
+            _playerCollider.enabled = true;
+            _animControl.SetBool("IsDestroyed", false);                         
+        }else if (HUDManager.Instance != null && !LifeManager.Instance.IsAlive())
+        {
+            HUDManager.Instance.SetHUD(HUDType.Defeat);
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

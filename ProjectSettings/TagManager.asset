@@ -18,6 +18,7 @@ TagManager:
   - RedEnemy
   - GreenEnemy
   - E_RedBullet
+  - HUD
   layers:
   - Default
   - TransparentFX
