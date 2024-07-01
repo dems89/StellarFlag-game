@@ -91,6 +91,9 @@ public class HUDManager : MonoBehaviour
     public void RepeatLevel()
     {
         SceneManager.LoadScene("Level" + currentLevel);
+        LifeManager.Instance.ResetLife();
+        inGameHUD.GetComponent<UIController>().UpdateLifeUI();    
+
     }
     public void SelectLevel(int level)
     {

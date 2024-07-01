@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2825330926971201982}
   - component: {fileID: 1574839122648440775}
   - component: {fileID: 1755000575076306901}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sun
-  m_TagString: Untagged
+  m_TagString: Sun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

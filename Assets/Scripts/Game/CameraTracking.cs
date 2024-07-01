@@ -10,7 +10,7 @@ public class CameraTracking : MonoBehaviour
     private void Awake()
     {
         m_camera = Camera.main;
-        m_camera.orthographicSize = 13f;
+        m_camera.orthographicSize = 17f;
         player = GameObject.FindWithTag("Player");
     }
 

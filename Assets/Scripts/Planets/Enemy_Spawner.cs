@@ -8,6 +8,8 @@ public class Enemy_Spawner : MonoBehaviour
     [SerializeField]
     private string[] enemies = {"RedEnemy", "GreenEnemy", "BlueEnemy"};
     private Transform player;
+    [SerializeField]
+    private GameObject _flag;
 
     //Estados del Spawn
     [SerializeField]
@@ -36,6 +38,7 @@ public class Enemy_Spawner : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         sol = GameObject.FindWithTag("Sun");
+        _flag.SetActive(false);
     }
 
     void Start()
@@ -142,6 +145,7 @@ public class Enemy_Spawner : MonoBehaviour
             {
                 spawning = false;
                 isCaptured = true;
+                _flag.SetActive(true);
                 //captureProgress.gameObject.SetActive(false);
             }
         } else

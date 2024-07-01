@@ -36,8 +36,7 @@ public class LifeManager : MonoBehaviour
         {
             lifes--;
             HUDManager.Instance.UpdateUIHealthIcon();
-        }
-       
+        }       
     }
     public void ResetLife()
     {

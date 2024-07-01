@@ -13,7 +13,7 @@ public class ObjectPoolItem
 }
 public class ObjectPooler : MonoBehaviour
 {
-   public static ObjectPooler SharedInstance;
+    public static ObjectPooler SharedInstance;
     public List<ObjectPoolItem> itemsToPool; //Objetos que se van a instanciar.
     public List<GameObject> pooledObjects;  //Lista de objetos instanciados previamente.
 

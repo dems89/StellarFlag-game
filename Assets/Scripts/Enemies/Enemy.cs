@@ -1,6 +1,9 @@
 using System.Collections;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -15,6 +18,8 @@ public abstract class Enemy : MonoBehaviour
     protected sbyte _damage;
     protected Animator _anim;
     protected bool isAlive;
+    [SerializeField]
+    private bool isAnTestEnemy = false;
 
     protected virtual void Awake()
     {
@@ -22,21 +27,22 @@ public abstract class Enemy : MonoBehaviour
         _enemyRb = gameObject.GetComponent<Rigidbody2D>();
         _playerRb = player.GetComponent<Rigidbody2D>();
         _enemyCollider = GetComponent<Collider2D>();
-        _anim = GetComponent<Animator>();        
-    }  
+        _anim = GetComponent<Animator>();
+    }
+
     protected virtual void Update()
     {
-        if (player != null && isAlive)
+        if (player != null && isAlive && !isAnTestEnemy)
         {
             Attack(ObjetiveDistance());
-        }
+        }      
     }
     protected virtual void FixedUpdate()
     {
         if (player != null && isAlive)
         {
             LookAtPlayer();
-            if (ObjetiveDistance() <= distanciaMaxima && ObjetiveDistance() >= distanciaMinima)
+            if (ObjetiveDistance() <= distanciaMaxima && ObjetiveDistance() >= distanciaMinima && !isAnTestEnemy)
             {
 
                 Movement();
@@ -46,7 +52,15 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void OnEnable()
     {
         isAlive = true;
-        _enemyCollider.enabled = true;
+        _enemyCollider.enabled = true;        
+    }
+    protected virtual void OnDisable()
+    {
+        if (isAnTestEnemy)
+        {
+            GameObject enemy = ObjectPooler.SharedInstance.GetPooledObjects(this.gameObject.tag);
+            enemy.SetActive(true);            
+        }
     }
     public float ObjetiveDistance()
     {
@@ -90,7 +104,7 @@ public abstract class Enemy : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-        }
+        }        
     }
 
     private IEnumerator DestroyAfterAnimation()

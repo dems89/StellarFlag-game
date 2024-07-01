@@ -19,6 +19,7 @@ TagManager:
   - GreenEnemy
   - E_RedBullet
   - HUD
+  - MapCamera
   layers:
   - Default
   - TransparentFX
@@ -31,8 +32,8 @@ TagManager:
   - Obstaculo
   - CheckPoint
   - Planets
-  - 
-  - 
+  - BackGround
+  - PlayerDOTmap
   - 
   - 
   - 
@@ -70,4 +71,10 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 2195444495
+    locked: 0
+  - name: Planet
+    uniqueID: 3274400137
+    locked: 0
+  - name: Enemy
+    uniqueID: 3473836643
     locked: 0
