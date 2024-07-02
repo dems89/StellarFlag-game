@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 2773473990928482627}
   - component: {fileID: 5518216089824515996}
   - component: {fileID: 51273419229509546}
-  m_Layer: 1
+  m_Layer: 3
   m_Name: Blue_Shield
   m_TagString: PlayerShield
   m_Icon: {fileID: 0}

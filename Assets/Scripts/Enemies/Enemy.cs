@@ -54,14 +54,6 @@ public abstract class Enemy : MonoBehaviour
         isAlive = true;
         _enemyCollider.enabled = true;        
     }
-    protected virtual void OnDisable()
-    {
-        if (isAnTestEnemy)
-        {
-            GameObject enemy = ObjectPooler.SharedInstance.GetPooledObjects(this.gameObject.tag);
-            enemy.SetActive(true);            
-        }
-    }
     public float ObjetiveDistance()
     {
         float distancia = Vector2.Distance(transform.position, player.transform.position);

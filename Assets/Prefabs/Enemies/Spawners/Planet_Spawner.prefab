@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8121112300831159933}
   - component: {fileID: 2309504027435231818}
   - component: {fileID: 3276573720921496606}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3486142415986395908}
   - component: {fileID: 5981877458676933786}
   - component: {fileID: 3818229511484287568}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2430332072693989315}
   - component: {fileID: 9072069188091437796}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 6020295546472554322}
   - component: {fileID: 3514302016920316507}
   - component: {fileID: 6849453796412445166}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,7 +715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4828763262707469271}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 564399732620323658, guid: 99c0fba86e3bd284084e876e9525f738, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 564399732620323658, guid: 99c0fba86e3bd284084e876e9525f738, type: 3}
       propertyPath: m_IsActive

@@ -48,6 +48,7 @@ public class Enemy_Spawner : MonoBehaviour
         Vector3 direccionInicial = transform.position - sol.transform.position;
         _angulo = Mathf.Atan2(direccionInicial.y, direccionInicial.x);
         _distanciaOrbita = (transform.position - sol.transform.position).magnitude;
+        _velocidadOrbita = CalculateOrbitalSpeed(_distanciaOrbita);
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = segments + 1;
         CalculateOrbit();
@@ -156,6 +157,18 @@ public class Enemy_Spawner : MonoBehaviour
            // Debug.Log(currentCaptureTime);
         }
        
+    }
+
+    public bool GetCaptured()
+    {
+        return isCaptured;
+    }
+
+    float CalculateOrbitalSpeed(float distance)
+    {
+        // Ajustar la constante según sea necesario para el efecto deseado
+        float orbitalSpeed = 1f / Mathf.Sqrt(distance);
+        return orbitalSpeed;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

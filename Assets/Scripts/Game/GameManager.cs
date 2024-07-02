@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private HUDManager hudController;
     public static GameManager Instance;
     private bool _isPaused = false;
     private PlayerController _pController;
@@ -18,10 +17,6 @@ public class GameManager : MonoBehaviour
         }     
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
-    }
-    private void Start()
-    {
-        hudController = FindObjectOfType<HUDManager>();        
     }
     private void Update()
     {
@@ -47,8 +42,8 @@ public class GameManager : MonoBehaviour
         }
     }
     public void PauseGame()
-    {
-        hudController.SetHUD(HUDType.PauseMenu);
+    {        
+        HUDManager.Instance.SetHUD(HUDType.PauseMenu);
         Time.timeScale = 0f;
         if (_pController != null)
         {
@@ -57,7 +52,7 @@ public class GameManager : MonoBehaviour
     }
     public void ResumeGame()
     {
-        hudController.SetHUD(HUDType.InGame);
+        HUDManager.Instance.SetHUD(HUDType.InGame);
         Time.timeScale = 1f;
         if (_pController != null)
         {

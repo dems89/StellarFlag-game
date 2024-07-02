@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         
     }
 
-    /*--------------MECHANICS---------------*/
+    /*--------------Mecanicas---------------*/
     void Movement()
     {
         float verticalInput = Input.GetAxis("Vertical");

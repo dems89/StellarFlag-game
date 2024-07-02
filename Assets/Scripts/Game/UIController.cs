@@ -9,6 +9,8 @@ public class UIController : MonoBehaviour
     private TMPro.TextMeshProUGUI _healthText;
     [SerializeField]
     private Image[] lifeimages;
+    [SerializeField]
+    private Image[] weapons;
 
     public void SetHealth(int health)
     {
@@ -32,6 +34,17 @@ public class UIController : MonoBehaviour
             {
                 SetImageOpacity(lifeimages[i], 0.1f);
             }                  
+        }
+    }
+
+    public void UpdateWeaponUI()
+    {
+        for( int i = 0; i< weapons.Length;i++)
+        {
+            if(i == 0)
+            {
+                SetImageOpacity(weapons[i], 0.1f);
+            }else { SetImageOpacity(weapons[i], 1f);  }
         }
     }
     private void SetImageOpacity(Image image, float opacity)

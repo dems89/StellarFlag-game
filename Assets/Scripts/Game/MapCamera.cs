@@ -23,6 +23,13 @@ public class MapCamera : MonoBehaviour
         //Debug.Log(_player.transform.position);
     }
 
+    /*private void LateUpdate()
+    {
+        Vector3 playerPosition = _player.transform.position;
+        playerPosition.z = transform.position.z;
+        transform.position = playerPosition;
+    }*/
+
     private void RedDotMovement()
     {
         _pIcon.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, 0f);

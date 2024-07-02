@@ -63,7 +63,7 @@ public class HUDManager : MonoBehaviour
             case HUDType.InGame: inGameHUD.SetActive(true); break;
             case HUDType.PauseMenu: pauseMenu.SetActive(true); break;
             case HUDType.MainMenu: mainMenu.SetActive(true); GameManager.Instance.SetPaused(false); break;
-            case HUDType.Victory: victoryHUD.SetActive(true); break;
+            case HUDType.Victory: victoryHUD.SetActive(true); GameManager.Instance.SetPaused(true); break;
             case HUDType.Defeat: defeatHUD.SetActive(true); break;
         }
     }
@@ -82,10 +82,17 @@ public class HUDManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if (currentLevel <= totalLevels)
+        if (currentLevel < totalLevels)
         {
             currentLevel++;
-            SceneManager.LoadScene("Level" + currentLevel);
+            if (currentLevel == totalLevels)
+            {
+                GoToMainMenu();
+            }else
+            {
+                SceneManager.LoadScene("Level" + currentLevel);
+            }
+            
         }
     }
     public void RepeatLevel()
@@ -97,7 +104,7 @@ public class HUDManager : MonoBehaviour
     }
     public void SelectLevel(int level)
     {
-        SceneManager.LoadScene("level" + level);
+        SceneManager.LoadScene("Level" + level);
         currentLevel = level;
     }   
     public void UpdateUIplayerHealth(int health)
