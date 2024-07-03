@@ -1,8 +1,3 @@
-using Microsoft.Unity.VisualStudio.Editor;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class MapCamera : MonoBehaviour
@@ -22,13 +17,6 @@ public class MapCamera : MonoBehaviour
         //Debug.Log(_pIcon.transform.position);
         //Debug.Log(_player.transform.position);
     }
-
-    /*private void LateUpdate()
-    {
-        Vector3 playerPosition = _player.transform.position;
-        playerPosition.z = transform.position.z;
-        transform.position = playerPosition;
-    }*/
 
     private void RedDotMovement()
     {

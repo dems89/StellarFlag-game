@@ -30,7 +30,7 @@ TagManager:
   - Enemy
   - EnemyCrosshair
   - Obstaculo
-  - CheckPoint
+  - TriggerCollider
   - Planets
   - BackGround
   - PlayerDOTmap
@@ -63,7 +63,7 @@ TagManager:
   - name: Foreground
     uniqueID: 1100878497
     locked: 0
-  - name: Collidable
+  - name: FxUnderPlayer
     uniqueID: 1851680275
     locked: 0
   - name: Player
@@ -71,10 +71,4 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 2195444495
-    locked: 0
-  - name: Planet
-    uniqueID: 3274400137
-    locked: 0
-  - name: Enemy
-    uniqueID: 3473836643
     locked: 0

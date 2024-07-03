@@ -138,8 +138,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -821130653
-  m_SortingLayer: 7
+  m_SortingLayerID: -678864521
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 1437260721, guid: 972044a2b353a7644bcc6a14a6dbda64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a226d3dbaf89ea48afa25677abaa459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 9
+  isAnTestEnemy: 0
   weapon: {fileID: 7985788306292795645, guid: 501a2eaec05e99c4a95d191d76484edf, type: 3}
 --- !u!95 &6327936822593509318
 Animator:
@@ -199,7 +199,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -25,7 +25,7 @@ public class Green_Enemy : Enemy
     {
         attackCooldown -= Time.deltaTime;
 
-        if (player != null && ObjetiveDistance() <= distanciaMinima  && attackCooldown <= 0.0f && isAlive)
+        if (player != null && ObjetiveDistance() <= distanciaMinima  && attackCooldown <= 0.0f && isAlive && !isAnTestEnemy)
         {            
             _lastPlayerPosition = player.transform.position;
             lineRenderer.enabled = false;

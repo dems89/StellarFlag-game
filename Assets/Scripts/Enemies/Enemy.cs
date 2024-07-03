@@ -1,9 +1,6 @@
 using System.Collections;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
+
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -12,14 +9,14 @@ public abstract class Enemy : MonoBehaviour
     protected Rigidbody2D _enemyRb, _playerRb;
     protected Collider2D _enemyCollider;
     /*--------------Propiedades del Enemy---------------*/
-    [SerializeField]
-    protected float _speed = 9f;
+    //[SerializeField]
+    protected float _speed = 13f;
     protected float distanciaMaxima = 30f, distanciaMinima = 15f, cadenciaDeFuego = 2f, tiempoUltimoDisparo;
     protected sbyte _damage;
     protected Animator _anim;
     protected bool isAlive;
     [SerializeField]
-    private bool isAnTestEnemy = false;
+    protected bool isAnTestEnemy = false;
 
     protected virtual void Awake()
     {

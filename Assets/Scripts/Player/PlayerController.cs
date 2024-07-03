@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
     private WeaponController weaponController;
     [SerializeField]
-    private int _maxHealth = 250;
+    private int _maxHealth = 100;
     private int _currentHealth;
     private Vector2 _lastCeckPoint;
     private bool _canShoot = true, _isShieldActive = false;
@@ -65,8 +65,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
-        Vector2 movement = new(horizontalInput, verticalInput);
-        rb.velocity = _speed * movement * Time.fixedDeltaTime ;
+        Vector2 movement = new Vector2(horizontalInput, verticalInput);
+        //movement.Normalize(); //Quito el normalizado porque se mueve por cuadrante
+        rb.velocity = _speed * movement * Time.fixedDeltaTime;
     }
 
     private void LookAtCursor()

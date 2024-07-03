@@ -7,13 +7,31 @@ public class Level2 : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> planets;
-    private bool _checkVictory = true;
+    private short countCaptured = 0;
+    private string totalPlanets;
+    [SerializeField]
+    private TMPro.TextMeshProUGUI planetsCaptured;
+    
+
 
     private void Awake()
     {
         AddToPlanetList();
+        totalPlanets = planets.Count.ToString();      
+    }
+    private void Start()
+    {
+        planetsCaptured.text = $"Planetas Liberados: {countCaptured} / {totalPlanets}";
     }
 
+    private void OnEnable()
+    {
+        Enemy_Spawner.OnPlanetCaptured += OnPlanetCaptured;
+    }
+    private void OnDisable()
+    {
+        Enemy_Spawner.OnPlanetCaptured -= OnPlanetCaptured;
+    }
     private void AddToPlanetList()
     {
         // Encuentra todos los GameObjects con el layer "Planets"
@@ -26,26 +44,15 @@ public class Level2 : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnPlanetCaptured(GameObject planet)
     {
-        if (IsAllPlanetsCaptured(ref planets) && _checkVictory)
-        {
-            _checkVictory = false;
-            HUDManager.Instance.SetHUD(HUDType.Victory);
-        }
-    }
+        countCaptured++;
+        planetsCaptured.text = $"Planetas Liberados: {countCaptured} / {totalPlanets}";
 
-    private bool IsAllPlanetsCaptured(ref List<GameObject> planets)
-    {
-        // Recorre la lista de planetas y verifica si todos están capturados
-        foreach (GameObject planet in planets)
+        if( countCaptured == planets.Count)
         {
-            Enemy_Spawner enemySpawner = planet.GetComponent<Enemy_Spawner>();
-            if (enemySpawner != null && !enemySpawner.GetCaptured())
-            {
-                return false; // Si algún planeta no está capturado, devuelve false
-            }
+            HUDManager.Instance.SetHUD(HUDType.Victory);
+            gameObject.SetActive(false);
         }
-        return true; // Todos los planetas están capturados
     }
 }

@@ -14,7 +14,7 @@ public class SwitchDoorController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // Cambia el estado de la puerta
-            puerta.SetActive(!puerta.activeSelf);
+            puerta.SetActive(false);
            
         }
     }

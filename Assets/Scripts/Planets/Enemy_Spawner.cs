@@ -12,16 +12,14 @@ public class Enemy_Spawner : MonoBehaviour
     private GameObject _flag;
 
     //Estados del Spawn
-    [SerializeField]
-    private float totalTimeToCapture = 3f;
+    private float totalTimeToCapture = 3.5f;
     [SerializeField]
     private Slider captureProgress;
     private bool isCaptured = false, isCapturing = false, spawning = true;
     private float currentCaptureTime;  
 
     //Propiedades del Spawn  
-    [SerializeField]
-    private float _enemySpawnInterval = 2.5f;    
+    private float _enemySpawnInterval = 2.8f;    
     private float timeLastSpawn, _detectionDistance = 25f;   
 
     //Orbita
@@ -32,6 +30,10 @@ public class Enemy_Spawner : MonoBehaviour
 
     public byte segments = 100;
     private LineRenderer lineRenderer;
+
+    //Eventos
+    public delegate void PlanetCapturedEventHandler(GameObject planet);
+    public static event PlanetCapturedEventHandler OnPlanetCaptured;
 
 
     private void Awake()
@@ -143,10 +145,8 @@ public class Enemy_Spawner : MonoBehaviour
             captureProgress.value = currentCaptureTime;
             //Debug.Log(currentCaptureTime);
             if (currentCaptureTime >= totalTimeToCapture)
-            {
-                spawning = false;
-                isCaptured = true;
-                _flag.SetActive(true);
+            {               
+                CapturePlanet();
                 //captureProgress.gameObject.SetActive(false);
             }
         } else
@@ -157,6 +157,17 @@ public class Enemy_Spawner : MonoBehaviour
            // Debug.Log(currentCaptureTime);
         }
        
+    }
+
+    private void CapturePlanet()
+    {
+        if (!isCaptured)
+        {
+            isCaptured = true;
+            spawning = false;
+            _flag.SetActive(true);
+            OnPlanetCaptured?.Invoke(gameObject);
+        }
     }
 
     public bool GetCaptured()

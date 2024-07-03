@@ -7,8 +7,12 @@ public class Level1 : MonoBehaviour
     private Dictionary<string, bool> firstActionSteps;
     private bool firstStep, secondStep, thirdStep;
     private byte stepNumber = 0;
-    public GameObject[] objectsToHide;
-    public GameObject planet;
+    [SerializeField]
+    private GameObject[] enemiesToHide;
+    [SerializeField]
+    private GameObject planet;
+    [SerializeField]
+    private GameObject[] gates;
 
     void Start()
     {
@@ -71,8 +75,8 @@ public class Level1 : MonoBehaviour
 
         if (AllActionsCompleted(firstActionSteps))
         {
-            Debug.Log("Step 1 Completed: Movements");
             firstStep = true;
+            gates[0].SetActive(false);
             stepNumber++;
         }
     }
@@ -81,7 +85,7 @@ public class Level1 : MonoBehaviour
     {
         bool allObjectsHidden = true;
 
-        foreach (GameObject obj in objectsToHide)
+        foreach (GameObject obj in enemiesToHide)
         {
             if (obj.activeSelf)
             {
@@ -92,8 +96,8 @@ public class Level1 : MonoBehaviour
 
         if (allObjectsHidden)
         {
-            Debug.Log("Step 2 completed: All objects are hidden.");
             secondStep = true;
+            gates[1].SetActive(false);
             stepNumber++;
         }
     }
@@ -102,7 +106,6 @@ public class Level1 : MonoBehaviour
     {
         if (planet.GetComponent<Enemy_Spawner>().GetCaptured())
         {
-            Debug.Log("Step 3 completed: The planet is captured.");
             thirdStep = true;
             stepNumber++;
         }

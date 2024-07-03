@@ -63,7 +63,7 @@ public class HUDManager : MonoBehaviour
             case HUDType.InGame: inGameHUD.SetActive(true); break;
             case HUDType.PauseMenu: pauseMenu.SetActive(true); break;
             case HUDType.MainMenu: mainMenu.SetActive(true); GameManager.Instance.SetPaused(false); break;
-            case HUDType.Victory: victoryHUD.SetActive(true); GameManager.Instance.SetPaused(true); break;
+            case HUDType.Victory: victoryHUD.SetActive(true); break;
             case HUDType.Defeat: defeatHUD.SetActive(true); break;
         }
     }
