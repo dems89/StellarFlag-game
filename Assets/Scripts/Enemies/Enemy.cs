@@ -17,6 +17,8 @@ public abstract class Enemy : MonoBehaviour
     protected bool isAlive;
     [SerializeField]
     protected bool isAnTestEnemy = false;
+    [SerializeField]
+    private AudioClip _die;
 
     protected virtual void Awake()
     {
@@ -86,6 +88,7 @@ public abstract class Enemy : MonoBehaviour
         isAlive = false;
         if (_anim != null)
         {
+            AudioPooler.Instance.PlaySound(_die, transform.position);
             _enemyCollider.enabled = false;
             _anim.SetTrigger("Die");           
             StartCoroutine(DestroyAfterAnimation());

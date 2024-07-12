@@ -25,10 +25,10 @@ public class Enemy_Spawner : MonoBehaviour
     //Orbita
     private GameObject sol;
     private float _distanciaOrbita;
-    private float _velocidadOrbita = 0.1f;
+    private float _velocidadOrbita;
     private float _angulo;
 
-    public byte segments = 100;
+    private byte segments = 100;
     private LineRenderer lineRenderer;
 
     //Eventos
@@ -108,7 +108,7 @@ public class Enemy_Spawner : MonoBehaviour
             enemyIndex = 0;
             enemyType = enemies[enemyIndex];
         }
-        else if (randomValue <= 0.80f)
+        else if (randomValue <= 0.65f)
         {
             enemyIndex = 1;
             enemyType = enemies[enemyIndex];
@@ -178,7 +178,7 @@ public class Enemy_Spawner : MonoBehaviour
     float CalculateOrbitalSpeed(float distance)
     {
         // Ajustar la constante según sea necesario para el efecto deseado
-        float orbitalSpeed = 1f / Mathf.Sqrt(distance);
+        float orbitalSpeed = 0.8f / Mathf.Sqrt(distance);
         return orbitalSpeed;
     }
 

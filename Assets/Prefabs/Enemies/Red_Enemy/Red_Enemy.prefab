@@ -165,7 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnTestEnemy: 0
+  _die: {fileID: 8300000, guid: 6bea9d2927fe2fb449fb269824ef9ae0, type: 3}
   weapon: {fileID: 7985788306292795645, guid: 501a2eaec05e99c4a95d191d76484edf, type: 3}
+  _dmgSound: {fileID: 8300000, guid: cb881cecabfcc4f40b1d627aa7f60e79, type: 3}
 --- !u!95 &6327936822593509318
 Animator:
   serializedVersion: 5

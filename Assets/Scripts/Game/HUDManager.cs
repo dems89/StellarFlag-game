@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -40,14 +41,13 @@ public class HUDManager : MonoBehaviour
     {
         if (scene.name == "MainMenu")
         {
-           SetHUD(HUDType.MainMenu);
+            SetHUD(HUDType.MainMenu);
         }
         else
         {
             SetHUD(HUDType.InGame);
         }
     }
-
     public void SetHUD(HUDType hud)
     {
         //Debug.Log("Hud: " + hud.ToString());
@@ -101,6 +101,10 @@ public class HUDManager : MonoBehaviour
         LifeManager.Instance.ResetLife();
         inGameHUD.GetComponent<UIController>().UpdateLifeUI();    
 
+    }
+    public void SelectWeaponUI(int weapon)
+    {
+        inGameHUD.GetComponent<UIController>().UpdateWeaponUI(weapon);
     }
     public void SelectLevel(int level)
     {

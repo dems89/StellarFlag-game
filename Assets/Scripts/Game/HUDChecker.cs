@@ -6,16 +6,23 @@ public class HUDChecker : MonoBehaviour
 {
     [SerializeField]
     private GameObject HUDPrefab;
+    [SerializeField]
+    private GameObject audioManager;
+
+
     private static bool isHUDInitialized = false;
 
     void Awake()
     {
         if (!isHUDInitialized)
         {
+            GameObject auManager = Instantiate(audioManager);
             GameObject hudInstance = Instantiate(HUDPrefab);
             DontDestroyOnLoad(hudInstance);
+            DontDestroyOnLoad(auManager);
             isHUDInitialized = true;
         }
+        
         CheckForDuplicateHUDs();
     }
 

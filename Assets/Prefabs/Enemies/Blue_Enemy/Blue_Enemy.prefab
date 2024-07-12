@@ -194,3 +194,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnTestEnemy: 0
+  _die: {fileID: 8300000, guid: 6bea9d2927fe2fb449fb269824ef9ae0, type: 3}
+  _dmgSound: {fileID: 8300000, guid: 1d0376bac66fd414d99ff70c67709e1f, type: 3}

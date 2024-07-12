@@ -3,7 +3,7 @@ using UnityEngine;
 public class LifeManager : MonoBehaviour
 {
     public static LifeManager Instance { get; private set; }
-    public byte lifes = 2;
+    private byte lifes = 2;
 
     private void Awake()
     {

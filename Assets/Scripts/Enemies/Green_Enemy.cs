@@ -5,30 +5,34 @@ public class Green_Enemy : Enemy
 {
     [SerializeField]
     private Transform crosshair;
-    private float rayMaxLength = 10f, attackCooldown = 3f;
+    private float rayMaxLength = 10f, attackCooldown = 1.5f;
     public LayerMask capaObstaculo;
     private Vector2 _lastPlayerPosition;
     public LineRenderer lineRenderer;
     readonly WaitForSeconds delayAiming = new WaitForSeconds(.3f);
-    readonly WaitForSeconds delayPostShoot = new WaitForSeconds(.4f);
+    readonly WaitForSeconds delayPostShoot = new WaitForSeconds(.3f);
+    [SerializeField]
+    private AudioClip _dmgSound;
 
     void Start()
     {
-        distanciaMinima -= 6f;
+        distanciaMinima -= 4f;
         cadenciaDeFuego += 0.5f;
         _speed -= 1f;
         lineRenderer.enabled = false;
         _damage = 20;
     }
-
+    private void OnDisable()
+    {
+        lineRenderer.enabled = false;
+    }
     protected override void Update()
     {
         attackCooldown -= Time.deltaTime;
 
         if (player != null && ObjetiveDistance() <= distanciaMinima  && attackCooldown <= 0.0f && isAlive && !isAnTestEnemy)
         {            
-            _lastPlayerPosition = player.transform.position;
-            lineRenderer.enabled = false;
+            _lastPlayerPosition = player.transform.position;            
             StartCoroutine(EmitRay());
             attackCooldown = cadenciaDeFuego;           
         }
@@ -40,6 +44,7 @@ public class Green_Enemy : Enemy
         yield return delayAiming;
         RaycastHit2D hit = Physics2D.Raycast(crosshair.position, direction, rayMaxLength, capaObstaculo);     
         lineRenderer.enabled = true;
+        AudioPooler.Instance.PlaySound(_dmgSound, transform.position);
         lineRenderer.SetPosition(0, crosshair.position);
 
         if (hit.collider != null)
@@ -70,7 +75,6 @@ public class Green_Enemy : Enemy
         //Debug.Log("Colision detectada" + collision.collider.name);
         if (collision.gameObject.CompareTag("Bullet_Fire"))
         {
-            lineRenderer.enabled = false;
             Die();
         }
     }

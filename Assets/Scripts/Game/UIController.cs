@@ -37,14 +37,14 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void UpdateWeaponUI()
+    public void UpdateWeaponUI(int selection)
     {
         for( int i = 0; i< weapons.Length;i++)
         {
-            if(i == 0)
+            if(i == selection)
             {
-                SetImageOpacity(weapons[i], 0.1f);
-            }else { SetImageOpacity(weapons[i], 1f);  }
+                SetImageOpacity(weapons[i], 1f);
+            }else { SetImageOpacity(weapons[i], 0.1f);  }
         }
     }
     private void SetImageOpacity(Image image, float opacity)

@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1001951948928907552, guid: e19bf6ba05781a146bc913b5dec189fd, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 3319521030737758824, guid: b37c13c8b62ffdc47bb0ca6804405f9d, type: 3}
     - target: {fileID: 3686603255769065601, guid: e19bf6ba05781a146bc913b5dec189fd, type: 3}
       propertyPath: m_Name
       value: HUDChecker
@@ -192,6 +196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5049105737618163700, guid: 90961f8062968274db37158eb0437e1a, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049105737618163700, guid: 90961f8062968274db37158eb0437e1a, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8551474514334124421, guid: 90961f8062968274db37158eb0437e1a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1277.6228
@@ -232,6 +244,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8974766168882582134, guid: 90961f8062968274db37158eb0437e1a, type: 3}
+      propertyPath: lvl2
+      value: 
+      objectReference: {fileID: 8300000, guid: 807181b35eb2844458db6c4167e4acad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

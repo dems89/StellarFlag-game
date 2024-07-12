@@ -9,6 +9,8 @@ public class Blue_Enemy : Enemy
     private float _maxSpeed = 18f;
     private float _SpeedReduction = 12f;
     readonly WaitForSeconds delayDmg = new WaitForSeconds(1);
+    [SerializeField]
+    private AudioClip _dmgSound;
 
     void Start()
     {
@@ -42,6 +44,7 @@ public class Blue_Enemy : Enemy
     {
         while (isPlayerDetected)
         {
+            AudioPooler.Instance.PlaySound(_dmgSound, transform.position);
             ApplyDamageToPlayer(player);
             yield return delayDmg; // Aplica el daño cada segundo
         }
@@ -57,7 +60,7 @@ public class Blue_Enemy : Enemy
         {
             _enemyRb.constraints = RigidbodyConstraints2D.FreezeAll;
             isPlayerDetected = true;
-            _playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
+            _playerRb.constraints = RigidbodyConstraints2D.FreezeAll;            
             StartCoroutine(ApplyDamageRepeatedly(collision.collider.gameObject));
         }
     }

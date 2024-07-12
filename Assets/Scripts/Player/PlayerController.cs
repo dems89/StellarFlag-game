@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     /*--------------ANIMATIONS---------------*/
     private Animator _animControl;
     private Animator _shieldAnimator;
+    public AudioClip shieldSound;
+
 
 
 
@@ -32,7 +34,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         _shieldAnimator = _shieldreflect.GetComponent<Animator>();
     }
     void Start()
-    {        
+    {
+        HUDManager.Instance.SelectWeaponUI(0);
         _currentHealth = _maxHealth;
         SetHUDMaxHealth();
         UpdateHUDHealth();
@@ -87,27 +90,32 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
         else if(Input.GetButtonDown("Fire1") && weaponController != null)
         {           
-                weaponController.FireProjectile();
+                weaponController.FireProjectile();                
         }
         
     }
     private void WeaponChange()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (HUDManager.Instance != null || weaponController !=null)
         {
-            weaponController.ChangeProjectile(0);
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                weaponController.ChangeProjectile(0);
+                HUDManager.Instance.SelectWeaponUI(0);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            weaponController.ChangeProjectile(1); 
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                weaponController.ChangeProjectile(1);
+                HUDManager.Instance.SelectWeaponUI(1);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            weaponController.ChangeProjectile(2); 
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                weaponController.ChangeProjectile(2);
+                HUDManager.Instance.SelectWeaponUI(2);
+            }
         }
-
     }
 
     private void UseShield()
@@ -115,6 +123,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _isShieldActive = true;
         _shieldreflect.gameObject.SetActive(true);
         _shieldAnimator.SetTrigger("ActiveShield");
+        AudioPooler.Instance.PlaySound(shieldSound, transform.position);
         StartCoroutine(WaitAnimationEnd());
     }
 
@@ -127,11 +136,12 @@ public class PlayerController : MonoBehaviour, IDamageable
             {
                 _playerCollider.enabled = false;
                 _animControl.SetBool("IsDestroyed", true);
-                StartCoroutine(RespawnAfterAnimation());
+                StartCoroutine(RespawnAfterAnimation());                
             }         
         }
         else
         {
+            _animControl.SetTrigger("Damaged");
             _currentHealth -= damage;
             UpdateHUDHealth();
             //Debug.Log(_currentHealth);
@@ -142,12 +152,19 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         _canShoot = state;
     }
-  
+
     /*--------------INTERFACES---------------*/
 
     private IEnumerator RespawnAfterAnimation()
     {
-        yield return new WaitForSeconds(_animControl.GetCurrentAnimatorStateInfo(0).length);
+        while (!_animControl.GetCurrentAnimatorStateInfo(0).IsName("Player_Die"))
+        {
+            yield return null;
+        }
+        float animationLength = _animControl.GetCurrentAnimatorStateInfo(0).length;
+
+        yield return new WaitForSeconds(animationLength);
+
         Respawn();
     }
     private IEnumerator WaitAnimationEnd()
@@ -177,12 +194,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (LifeManager.Instance != null && LifeManager.Instance.IsAlive())
         {
+            _animControl.SetBool("IsDestroyed", false);
             LifeManager.Instance.DecreaseLife();
             transform.position = _lastCeckPoint;
             _currentHealth = _maxHealth;
              UpdateHUDHealth();
             _playerCollider.enabled = true;
-            _animControl.SetBool("IsDestroyed", false);                         
+            
         }else if (HUDManager.Instance != null && !LifeManager.Instance.IsAlive())
         {
             HUDManager.Instance.SetHUD(HUDType.Defeat);

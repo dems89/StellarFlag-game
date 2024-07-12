@@ -9,6 +9,8 @@ public class Red_Enemy : Enemy
     private float _fireDelay = 1f;
     private bool canFire = false;
     WaitForSeconds delay;
+    [SerializeField]
+    private AudioClip _dmgSound;
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class Red_Enemy : Enemy
                 {
                     bulletScript.Initialize(transform.right);
                 }
+                AudioPooler.Instance.PlaySound(_dmgSound, transform.position);
                 newProjectile.SetActive(true);
             }
             tiempoUltimoDisparo = Time.time;
