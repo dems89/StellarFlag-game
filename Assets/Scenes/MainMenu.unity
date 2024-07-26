@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUDChecker
       objectReference: {fileID: 0}
+    - target: {fileID: 3686603255769065601, guid: e19bf6ba05781a146bc913b5dec189fd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8954784588231041307, guid: e19bf6ba05781a146bc913b5dec189fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1277.6228
@@ -195,6 +199,10 @@ PrefabInstance:
     - target: {fileID: 2675266732788324269, guid: 90961f8062968274db37158eb0437e1a, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675266732788324269, guid: 90961f8062968274db37158eb0437e1a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5049105737618163700, guid: 90961f8062968274db37158eb0437e1a, type: 3}
       propertyPath: Loop
@@ -318,7 +326,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 12287
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

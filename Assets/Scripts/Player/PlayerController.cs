@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private Animator _animControl;
     private Animator _shieldAnimator;
     public AudioClip shieldSound;
+    public AudioClip die;
 
 
 
@@ -136,11 +137,12 @@ public class PlayerController : MonoBehaviour, IDamageable
             {
                 _playerCollider.enabled = false;
                 _animControl.SetBool("IsDestroyed", true);
+                AudioPooler.Instance.PlaySound(die, transform.position);
                 StartCoroutine(RespawnAfterAnimation());                
             }         
         }
         else
-        {
+        {            
             _animControl.SetTrigger("Damaged");
             _currentHealth -= damage;
             UpdateHUDHealth();
@@ -195,7 +197,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (LifeManager.Instance != null && LifeManager.Instance.IsAlive())
         {
             _animControl.SetBool("IsDestroyed", false);
-            LifeManager.Instance.DecreaseLife();
+            LifeManager.Instance.DecreaseLife();            
             transform.position = _lastCeckPoint;
             _currentHealth = _maxHealth;
              UpdateHUDHealth();

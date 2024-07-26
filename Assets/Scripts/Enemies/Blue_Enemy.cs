@@ -22,6 +22,10 @@ public class Blue_Enemy : Enemy
         PlayerDodge();
         RecoverSpeed(ref _maxSpeed);
     }
+    private void OnDisable()
+    {
+        _speed = 13f;
+    }
     void PlayerDodge()
     {
         if (isPlayerDetected && Input.GetKeyDown(KeyCode.Space))

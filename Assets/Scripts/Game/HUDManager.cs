@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum HUDType
 {
-    InGame, MainMenu, PauseMenu, Victory, Defeat
+    InGame, MainMenu, PauseMenu, Victory, Defeat, skip, endStats
 }
 public class HUDManager : MonoBehaviour
 {
@@ -18,6 +17,9 @@ public class HUDManager : MonoBehaviour
     private GameObject victoryHUD;
     [SerializeField]
     private GameObject defeatHUD;
+    [SerializeField]
+    private GameObject endStatsHUD;
+    public GameObject skipHUD;
     private int currentLevel = 0;
     private int totalLevels = 3;
 
@@ -42,10 +44,19 @@ public class HUDManager : MonoBehaviour
         if (scene.name == "MainMenu")
         {
             SetHUD(HUDType.MainMenu);
-        }
-        else
+            GameManager.Instance.ResetStatics();
+        }else
         {
-            SetHUD(HUDType.InGame);
+            SetHUD(HUDType.InGame);            
+        }
+
+        if(scene.name == "Level0")
+        {
+            SetHUD(HUDType.skip);
+        }
+        if (scene.name == "Level1" || scene.name =="Level2")
+        {
+            GameManager.Instance.StartTimer();
         }
     }
     public void SetHUD(HUDType hud)
@@ -57,14 +68,18 @@ public class HUDManager : MonoBehaviour
         mainMenu.SetActive(false);
         victoryHUD.SetActive(false);
         defeatHUD.SetActive(false);
+        skipHUD.SetActive(false);
+        endStatsHUD.SetActive(false);
 
         switch (hud)
         {
-            case HUDType.InGame: inGameHUD.SetActive(true); break;
+            case HUDType.skip: skipHUD.SetActive(true); GameManager.Instance.SetCanPause(false); break;
+            case HUDType.InGame: inGameHUD.SetActive(true); GameManager.Instance.SetCanPause(true); Time.timeScale = 1f; break;
             case HUDType.PauseMenu: pauseMenu.SetActive(true); break;
-            case HUDType.MainMenu: mainMenu.SetActive(true); GameManager.Instance.SetPaused(false); break;
-            case HUDType.Victory: victoryHUD.SetActive(true); break;
-            case HUDType.Defeat: defeatHUD.SetActive(true); break;
+            case HUDType.MainMenu: mainMenu.SetActive(true); GameManager.Instance.SetCanPause(false); Time.timeScale = 1f; break;
+            case HUDType.Victory: victoryHUD.SetActive(true); GameManager.Instance.SetCanPause(false); Time.timeScale = 0f; break;
+            case HUDType.Defeat: defeatHUD.SetActive(true); GameManager.Instance.SetCanPause(false); Time.timeScale = 0f; break;
+            case HUDType.endStats: endStatsHUD.SetActive(true); GameManager.Instance.SetCanPause(false); Time.timeScale = 0f; break;
         }
     }
     public void GoToMainMenu()
@@ -79,17 +94,21 @@ public class HUDManager : MonoBehaviour
     {
         Application.Quit();
     }
-
     public void NextLevel()
     {
         if (currentLevel < totalLevels)
         {
-            currentLevel++;
             if (currentLevel == totalLevels)
             {
                 GoToMainMenu();
-            }else
+            }if (currentLevel == 0)
             {
+                SceneManager.LoadScene("Level" + currentLevel);
+                currentLevel++;
+            }
+            else
+            {
+                currentLevel++;
                 SceneManager.LoadScene("Level" + currentLevel);
             }
             
@@ -108,6 +127,8 @@ public class HUDManager : MonoBehaviour
     }
     public void SelectLevel(int level)
     {
+        LifeManager.Instance.ResetLife();
+        inGameHUD.GetComponent<UIController>().UpdateLifeUI();
         SceneManager.LoadScene("Level" + level);
         currentLevel = level;
     }   

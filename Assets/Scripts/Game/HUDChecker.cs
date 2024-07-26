@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HUDChecker : MonoBehaviour
 {
@@ -25,7 +26,6 @@ public class HUDChecker : MonoBehaviour
         
         CheckForDuplicateHUDs();
     }
-
     void CheckForDuplicateHUDs()
     {
         GameObject[] huds = GameObject.FindGameObjectsWithTag("HUD");

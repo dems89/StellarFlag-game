@@ -19,7 +19,7 @@ public class Enemy_Spawner : MonoBehaviour
     private float currentCaptureTime;  
 
     //Propiedades del Spawn  
-    private float _enemySpawnInterval = 2.8f;    
+    private float _enemySpawnInterval = 2f;    
     private float timeLastSpawn, _detectionDistance = 25f;   
 
     //Orbita

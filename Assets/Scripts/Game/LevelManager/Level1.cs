@@ -13,6 +13,11 @@ public class Level1 : MonoBehaviour
     private GameObject planet;
     [SerializeField]
     private GameObject[] gates;
+    public GameObject step1Check;
+    public GameObject step2Check;
+    public GameObject step3Check;
+    public GameObject step4Check;
+    public GameObject step5Check;
 
     void Start()
     {
@@ -27,6 +32,8 @@ public class Level1 : MonoBehaviour
         firstStep = false;
         secondStep = false;
         thirdStep = false;
+
+
     }
 
     void Update()
@@ -55,22 +62,26 @@ public class Level1 : MonoBehaviour
             Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
             firstActionSteps["Move"] = true;
+            step1Check.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) ||
             Input.GetKeyDown(KeyCode.Alpha3))
         {
             firstActionSteps["ChangeWeapon"] = true;
+            step2Check.SetActive(true);
         }
 
         if (Input.GetMouseButtonDown(0))
         {
             firstActionSteps["Shoot"] = true;
+            step3Check.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             firstActionSteps["Shield"] = true;
+            step4Check.SetActive(true);
         }
 
         if (AllActionsCompleted(firstActionSteps))
@@ -96,6 +107,7 @@ public class Level1 : MonoBehaviour
 
         if (allObjectsHidden)
         {
+            step5Check.SetActive(true);
             secondStep = true;
             gates[1].SetActive(false);
             stepNumber++;

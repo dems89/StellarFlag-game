@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8551474514334124421
 Transform:
@@ -59,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc4d926cd5236e4996360cb198c8b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 2
 --- !u!114 &8974766168882582134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +73,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 8300000, guid: 3c61bd40a28e38f41ad36377861673e9, type: 3}
   lvl1: {fileID: 8300000, guid: ce71f19b2631b8742983973dc6bdaff2, type: 3}
-  lvl2: {fileID: 0}
+  lvl2: {fileID: 8300000, guid: 807181b35eb2844458db6c4167e4acad, type: 3}
+  fx: {fileID: 0}
+  musicSlider: {fileID: 0}
+  fxSlider: {fileID: 0}
 --- !u!82 &5049105737618163700
 AudioSource:
   m_ObjectHideFlags: 0

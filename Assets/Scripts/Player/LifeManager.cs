@@ -3,7 +3,7 @@ using UnityEngine;
 public class LifeManager : MonoBehaviour
 {
     public static LifeManager Instance { get; private set; }
-    private byte lifes = 2;
+    private sbyte lifes = 2;
 
     private void Awake()
     {
@@ -18,11 +18,11 @@ public class LifeManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
-    public void SetLife(byte life)
+    public void SetLife(sbyte life)
     {
         lifes = life;
     }
-    public byte GetLife()
+    public sbyte GetLife()
     {
         return lifes;
     }

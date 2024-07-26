@@ -51,7 +51,8 @@ public class Level2 : MonoBehaviour
 
         if( countCaptured == planets.Count)
         {
-            HUDManager.Instance.SetHUD(HUDType.Victory);
+            GameManager.Instance.StopTimer();
+            HUDManager.Instance.SetHUD(HUDType.endStats);
             gameObject.SetActive(false);
         }
     }

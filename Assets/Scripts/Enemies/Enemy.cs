@@ -86,6 +86,7 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Die()
     {
         isAlive = false;
+        GameManager.Instance.UpdateEnemyCount(gameObject.tag);
         if (_anim != null)
         {
             AudioPooler.Instance.PlaySound(_die, transform.position);
